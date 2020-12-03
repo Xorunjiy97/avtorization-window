@@ -1,6 +1,8 @@
 class Registr {
-	constructor (db) {
+	constructor (db, autWin) {
 		this._db = db;
+		this.autoris = autWin;
+		this.newDiv = null;
 	}
 
 	getValue = event => {
@@ -15,8 +17,11 @@ class Registr {
 
 		this._db.saveUser(currentValue);
 
-        this.clearInput();
-
+		this.clearInput();
+		const rem = document.getElementById('registr-box');
+		const root = document.getElementById('root');
+		this.newDiv.remove(this.newDiv);
+		root.append(this.autoris.createDinamicLogIn());
         //создать функцию которая будет переключать страницу на authPage
 	}
 
@@ -26,16 +31,16 @@ class Registr {
     }
 
     createDinamicLogIn = () => {
-		const newDiv = document.createElement('div');
-		newDiv.setAttribute('class', 'registr-box');
+		this.newDiv = document.createElement('div');
+		this.newDiv.setAttribute('class', 'registr-box');
 		// document.getElementById('root').appendChild(newDiv);
 		
 		const newH2 = document.createElement('h2');
 		newH2.innerText = 'registration ';
-		newDiv.append(newH2);
+		this.newDiv.append(newH2);
 
 		const newForm =  document.createElement('form');
-		newDiv.append(newForm);
+		this.newDiv.append(newForm);
 
 		const newDiv2 =  document.createElement('div');
 		newDiv2.setAttribute('class', 'user-box');
@@ -70,7 +75,7 @@ class Registr {
 		singInButton.addEventListener('click', this.getValue)
 		newForm.append(singInButton);
 
-		return newDiv;
+		return this.newDiv;
 	}
 }
 

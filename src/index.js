@@ -1,6 +1,6 @@
 import Model from './model/Model.js';
 import Modals from './modals/Modals';
-import './autoris-style.less';
+import './style.less';
 
 function init() {
 	const db = new Model();
