@@ -13,7 +13,7 @@ class Autoris {
 			password,
 		};
 
-		this._db.saveUser(currentValue)
+		this._db.findUser(currentValue)
 
 		this.clearInput();
 	}
