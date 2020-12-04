@@ -26,8 +26,7 @@ class Autoris {
     createDinamicLogIn = () => {
 		const newDiv = document.createElement('div');
 		newDiv.setAttribute('class', 'login-box');
-		// document.getElementById('root').appendChild(newDiv);
-		
+	
 		const newH2 = document.createElement('h2');
 		newH2.innerText = 'Sign in';
 		newDiv.append(newH2);
