@@ -67,7 +67,6 @@ class Autoris {
 		singInButton.setAttribute('id', 'submit');
 		singInButton.addEventListener('click', this.getValue)
 		newForm.append(singInButton);
-		console.log(33333333333333)
 		return newDiv;
 	}
 }
