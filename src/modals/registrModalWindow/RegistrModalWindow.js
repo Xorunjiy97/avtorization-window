@@ -1,8 +1,8 @@
 class Registr {
 	constructor (db, autWin) {
 		this._db = db;
-		this._autoris = autWin;
-		this._newDiv = null;
+		this.autoris = autWin;
+		this.newDiv = null;
 	}
 
 	getValue = event => {
@@ -20,7 +20,7 @@ class Registr {
 		this.clearInput();
 		const rem = document.getElementById('registr-box');
 		const root = document.getElementById('root');
-		this._newDiv.remove(this._newDiv);
+		this.newDiv.remove(this.newDiv);
 		root.append(this.autoris.createDinamicLogIn());
         //создать функцию которая будет переключать страницу на authPage
 	}
