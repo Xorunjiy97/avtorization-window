@@ -1,21 +1,28 @@
-class Autoris {
-	constructor (db) {
+class Registr {
+	constructor (db, autWin) {
 		this._db = db;
+		this.autoris = autWin;
+		this.newDiv = null;
 	}
 
 	getValue = event => {
 		event.preventDefault();
 
 		const login = document.getElementById("username").value;
-		const password = document.getElementById("password").value;
+        const password = document.getElementById("password").value;
 		const currentValue = {
 			login,
 			password,
 		};
 
-		this._db.findUser(currentValue)
+		this._db.saveUser(currentValue);
 
 		this.clearInput();
+		const rem = document.getElementById('registr-box');
+		const root = document.getElementById('root');
+		this.newDiv.remove(this.newDiv);
+		root.append(this.autoris.createDinamicLogIn());
+        //создать функцию которая будет переключать страницу на authPage
 	}
 
     clearInput = () => {
@@ -24,16 +31,16 @@ class Autoris {
     }
 
     createDinamicLogIn = () => {
-		const newDiv = document.createElement('div');
-		newDiv.setAttribute('class', 'login-box');
+		this.newDiv = document.createElement('div');
+		this.newDiv.setAttribute('class', 'registr-box');
 		// document.getElementById('root').appendChild(newDiv);
 		
 		const newH2 = document.createElement('h2');
-		newH2.innerText = 'Sign in';
-		newDiv.append(newH2);
+		newH2.innerText = 'registration ';
+		this.newDiv.append(newH2);
 
 		const newForm =  document.createElement('form');
-		newDiv.append(newForm);
+		this.newDiv.append(newForm);
 
 		const newDiv2 =  document.createElement('div');
 		newDiv2.setAttribute('class', 'user-box');
@@ -63,12 +70,13 @@ class Autoris {
 		const singInButton = document.createElement('button');
 		singInButton.setAttribute('type', 'submit');
 
-		singInButton.innerText = 'Sign in';
+		singInButton.innerText = 'registration ';
 		singInButton.setAttribute('id', 'submit');
 		singInButton.addEventListener('click', this.getValue)
 		newForm.append(singInButton);
-		return newDiv;
+
+		return this.newDiv;
 	}
 }
 
-export default Autoris;
+export default Registr;
