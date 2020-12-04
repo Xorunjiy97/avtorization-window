@@ -70,6 +70,11 @@ class Registr {
 		const singInButton = document.createElement('button');
 		singInButton.setAttribute('type', 'submit');
 
+		const close = document.createElement('a');
+		close.innerText = 'x';
+		close.setAttribute('id', 'close');
+		this.newDiv.append(close);
+
 		singInButton.innerText = 'registration ';
 		singInButton.setAttribute('id', 'submit');
 		singInButton.addEventListener('click', this.getValue)

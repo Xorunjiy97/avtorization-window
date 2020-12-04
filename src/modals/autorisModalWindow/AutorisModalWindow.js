@@ -63,6 +63,10 @@ class Autoris {
 		const singInButton = document.createElement('button');
 		singInButton.setAttribute('type', 'submit');
 
+		const close = document.createElement('a');
+		close.innerText = 'x';
+		close.setAttribute('id', 'close');
+
 		singInButton.innerText = 'Sign in';
 		singInButton.setAttribute('id', 'submit');
 		singInButton.addEventListener('click', this.getValue)
