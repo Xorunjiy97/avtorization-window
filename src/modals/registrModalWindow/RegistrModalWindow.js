@@ -14,14 +14,17 @@ class Registr {
 			login,
 			password,
 		};
+		
 
-		this._db.saveUser(currentValue);
-
-		this.clearInput();
-		// const rem = document.getElementById('registr-box');
-		const root = document.getElementById('root');
-		this.newDiv.remove(this.newDiv);
-		root.append(this.autoris.createDinamicLogIn());
+		if(undefined === this._db.checkReg(currentValue)) {
+			this._db.saveUser(currentValue);
+			this.clearInput();
+			const root = document.getElementById('root');
+			this.newDiv.remove(this.newDiv);
+			root.append(this.autoris.createDinamicLogIn());
+		} else {
+			alert("takoy uje est");
+		}
         //создать функцию которая будет переключать страницу на authPage
 	}
 
@@ -69,6 +72,11 @@ class Registr {
 
 		const singInButton = document.createElement('button');
 		singInButton.setAttribute('type', 'submit');
+
+		const close = document.createElement('a');
+		close.innerText = 'x';
+		close.setAttribute('id', 'close');
+		this.newDiv.append(close);
 
 		singInButton.innerText = 'registration ';
 		singInButton.setAttribute('id', 'submit');
