@@ -12,16 +12,24 @@ class Autoris {
 			login,
 			password,
 		};
-
-		this._db.findUser(currentValue)
-
-		this.clearInput();
+		this.openWelcomeWin(currentValue);
 	}
 
-    clearInput = () => {
-      document.getElementById("username").value = '';
-      document.getElementById("password").value = '';
-    }
+	openWelcomeWin = (currentValue) => {
+		if(undefined == this._db.findUser(currentValue)) {
+			alert('net takoqo')
+			
+		} else {
+			const root = document.getElementById('root');
+			root.innerHTML = '';
+			const div = document.createElement("div");
+			const h2 = document.createElement("h2");
+			div.append(h2);		  
+			h2.setAttribute("class", "welcome");			  
+			h2.innerHTML = `Велкоме ${currentValue.login}`;			  
+			root.append(div);
+		}
+	}
 
     createDinamicLogIn = () => {
 		const newDiv = document.createElement('div');
@@ -66,6 +74,7 @@ class Autoris {
 		const close = document.createElement('a');
 		close.innerText = 'x';
 		close.setAttribute('id', 'close');
+		newDiv.append(close);
 
 		singInButton.innerText = 'Sign in';
 		singInButton.setAttribute('id', 'submit');
@@ -76,3 +85,14 @@ class Autoris {
 }
 
 export default Autoris;
+
+// function validateEmail(email) 
+//     {
+//         var re = /\S+@\S+\.\S+/;
+//         return re.test(email);
+//     }
+
+// function isValidPassword(passw) {
+//     var pattern = new RegExp(/[A-Za-z0-9]{6,}/);
+//     return pattern.test(passw);
+// }
