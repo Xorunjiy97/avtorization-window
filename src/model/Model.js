@@ -8,6 +8,6 @@ class Model {
 	}
 
 	findUser = currentUser => this._db.find(user => user.login === currentUser.login && (user.password === currentUser.password));
+	
 }
-
 export default Model;
