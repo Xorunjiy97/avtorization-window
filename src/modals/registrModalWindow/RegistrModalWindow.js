@@ -18,7 +18,7 @@ class Registr {
 		this._db.saveUser(currentValue);
 
 		this.clearInput();
-		const rem = document.getElementById('registr-box');
+		// const rem = document.getElementById('registr-box');
 		const root = document.getElementById('root');
 		this.newDiv.remove(this.newDiv);
 		root.append(this.autoris.createDinamicLogIn());

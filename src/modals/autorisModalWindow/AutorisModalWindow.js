@@ -1,6 +1,8 @@
 class Autoris {
-	constructor (db) {
+	constructor (db, welcome) {
 		this._db = db;
+		this.newDiv = null;
+		this._welcome = welcome
 	}
 
 	getValue = event => {
@@ -12,28 +14,30 @@ class Autoris {
 			login,
 			password,
 		};
-
-		this._db.findUser(currentValue)
+	
+		this._db.findUser(currentValue);
 
 		this.clearInput();
+		const root = document.getElementById('root');
+		this.newDiv.remove(this.newDiv);
+		root.append(this._welcome.showWelcome());
 	}
 
     clearInput = () => {
       document.getElementById("username").value = '';
-      document.getElementById("password").value = '';
+		document.getElementById("password").value = '';
     }
 
     createDinamicLogIn = () => {
-		const newDiv = document.createElement('div');
-		newDiv.setAttribute('class', 'login-box');
-		// document.getElementById('root').appendChild(newDiv);
+		this.newDiv = document.createElement('div');
+		this.newDiv.setAttribute('class', 'login-box');
 		
 		const newH2 = document.createElement('h2');
-		newH2.innerText = 'Sign in';
-		newDiv.append(newH2);
+		newH2.innerText = 'Авторизация';
+		this.newDiv.append(newH2);
 
 		const newForm =  document.createElement('form');
-		newDiv.append(newForm);
+		this.newDiv.append(newForm);
 
 		const newDiv2 =  document.createElement('div');
 		newDiv2.setAttribute('class', 'user-box');
@@ -63,11 +67,11 @@ class Autoris {
 		const singInButton = document.createElement('button');
 		singInButton.setAttribute('type', 'submit');
 
-		singInButton.innerText = 'Sign in';
+		singInButton.innerText = 'Авторизация';
 		singInButton.setAttribute('id', 'submit');
 		singInButton.addEventListener('click', this.getValue)
 		newForm.append(singInButton);
-		return newDiv;
+		return this.newDiv;
 	}
 }
 
