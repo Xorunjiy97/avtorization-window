@@ -17,7 +17,7 @@ class Autoris {
 
   openWelcomeWin = (currentValue) => {
     if (undefined == this._db.findUser(currentValue)) {
-      alert("net takoqo");
+      alert("Логин или пароль введен неверно");
     } else {
       const root = document.getElementById("root");
       root.innerHTML = "";
