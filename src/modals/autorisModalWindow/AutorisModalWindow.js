@@ -33,7 +33,7 @@ class Autoris {
   createDinamicLogIn = () => {
     const newDiv = document.createElement("div");
     newDiv.setAttribute("class", "login-box");
-    // document.getElementById('root').appendChild(newDiv);
+  
 
     const newH2 = document.createElement("h2");
     newH2.innerText = "Authorization";
@@ -87,12 +87,12 @@ class Autoris {
 
 export default Autoris;
 
-function validateEmail(email) {
-  let re = /\S+@\S+\.\S+/;
-  return re.test(email);
-}
+// function validateEmail(email) {
+//   let re = /\S+@\S+\.\S+/;
+//   return re.test(email);
+// }
 
-function isValidPassword(passw) {
-  let pattern = new RegExp(/[A-Za-z0-9]{6,}/);
-  return pattern.test(passw);
-}
+// function isValidPassword(passw) {
+//   let pattern = new RegExp(/[A-Za-z0-9]{6,}/);
+//   return pattern.test(passw);
+// }

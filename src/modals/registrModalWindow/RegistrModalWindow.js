@@ -22,9 +22,8 @@ class Registr {
       this.newDiv.remove(this.newDiv);
       root.append(this.autoris.createDinamicLogIn());
     } else {
-      alert("takoy uje est");
+      alert("Такой логин уже существует");
     }
-    //создать функцию которая будет переключать страницу на authPage
   };
 
   clearInput = () => {
