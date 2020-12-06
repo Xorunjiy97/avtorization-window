@@ -87,12 +87,4 @@ class Autoris {
 
 export default Autoris;
 
-// function validateEmail(email) {
-//   let re = /\S+@\S+\.\S+/;
-//   return re.test(email);
-// }
 
-// function isValidPassword(passw) {
-//   let pattern = new RegExp(/[A-Za-z0-9]{6,}/);
-//   return pattern.test(passw);
-// }
