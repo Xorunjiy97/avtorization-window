@@ -47,7 +47,8 @@ class Registr {
     newForm.append(newDiv2);
 
     const newInput = document.createElement("input");
-    newInput.setAttribute("id", "username");
+	 newInput.setAttribute("id", "username");
+	 newInput.setAttribute('type', "email");
     newDiv2.append(newInput);
 
     const newLabel = document.createElement("label");
@@ -61,7 +62,8 @@ class Registr {
 
     const newInput2 = document.createElement("input");
     newInput2.setAttribute("id", "password");
-    newInput2.setAttribute("type", "password");
+	 newInput2.setAttribute("type", "password");
+	 newInput2.setAttribute('minlength', "8" );
     newDiv3.append(newInput2);
 
     const newLabel2 = document.createElement("label");
@@ -79,7 +81,7 @@ class Registr {
 
     singInButton.innerText = "Registration ";
     singInButton.setAttribute("id", "submit");
-    singInButton.addEventListener("click", this.getValue);
+    newForm.addEventListener("submit", this.getValue);
     newForm.append(singInButton);
 
     return this.newDiv;

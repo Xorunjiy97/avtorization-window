@@ -1,6 +1,7 @@
 import Registr from "./registrModalWindow/RegistrModalWindow";
 import Autoris from "./autorisModalWindow/AutorisModalWindow";
 
+
 class Modals {
   constructor(db) {
     this._root = document.getElementById("root");
