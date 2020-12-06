@@ -1,90 +1,90 @@
 class Registr {
-	constructor (db, autWin) {
-		this._db = db;
-		this.autoris = autWin;
-		this.newDiv = null;
-	}
+  constructor(db, autWin) {
+    this._db = db;
+    this.autoris = autWin;
+    this.newDiv = null;
+  }
 
-	getValue = event => {
-		event.preventDefault();
+  getValue = (event) => {
+    event.preventDefault();
 
-		const login = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-		const currentValue = {
-			login,
-			password,
-		};
-		
+    const login = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const currentValue = {
+      login,
+      password,
+    };
 
-		if(undefined === this._db.checkReg(currentValue)) {
-			this._db.saveUser(currentValue);
-			this.clearInput();
-			const root = document.getElementById('root');
-			this.newDiv.remove(this.newDiv);
-			root.append(this.autoris.createDinamicLogIn());
-		} else {
-			alert("takoy uje est");
-		}
-        //создать функцию которая будет переключать страницу на authPage
-	}
-
-    clearInput = () => {
-      document.getElementById("username").value = '';
-      document.getElementById("password").value = '';
+    if (undefined === this._db.checkReg(currentValue)) {
+      this._db.saveUser(currentValue);
+      this.clearInput();
+      const root = document.getElementById("root");
+      this.newDiv.remove(this.newDiv);
+      root.append(this.autoris.createDinamicLogIn());
+    } else {
+      alert("takoy uje est");
     }
+    //создать функцию которая будет переключать страницу на authPage
+  };
 
-    createDinamicLogIn = () => {
-		this.newDiv = document.createElement('div');
-		this.newDiv.setAttribute('class', 'registr-box');
-		// document.getElementById('root').appendChild(newDiv);
-		
-		const newH2 = document.createElement('h2');
-		newH2.innerText = 'registration ';
-		this.newDiv.append(newH2);
+  clearInput = () => {
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+  };
 
-		const newForm =  document.createElement('form');
-		this.newDiv.append(newForm);
+  createDinamicLogIn = () => {
+    this.newDiv = document.createElement("div");
+    this.newDiv.setAttribute("class", "registr-box");
 
-		const newDiv2 =  document.createElement('div');
-		newDiv2.setAttribute('class', 'user-box');
-		newForm.append(newDiv2);
+    const newH2 = document.createElement("h2");
+    newH2.innerText = "Registration ";
+    this.newDiv.append(newH2);
 
-		const newInput = document.createElement('input');
-		newInput.setAttribute('id','username');
-		newDiv2.append(newInput);
+    const newForm = document.createElement("form");
+    this.newDiv.append(newForm);
 
-		const newLabel = document.createElement('label');
-		const labelTxt = document.createTextNode('Username');
-		newLabel.append(labelTxt);
-		newDiv2.append(newLabel);
+    const newDiv2 = document.createElement("div");
+    newDiv2.setAttribute("class", "user-box");
+    newForm.append(newDiv2);
 
-		const newDiv3 = document.createElement('div');
-		newDiv3.setAttribute('class', 'user-box');
-		newForm.append(newDiv3);
+    const newInput = document.createElement("input");
+    newInput.setAttribute("id", "username");
+    newDiv2.append(newInput);
 
-		const newInput2 = document.createElement('input');
-		newInput2.setAttribute('id','password');
-		newDiv3.append(newInput2);
+    const newLabel = document.createElement("label");
+    const labelTxt = document.createTextNode("Username");
+    newLabel.append(labelTxt);
+    newDiv2.append(newLabel);
 
-		const newLabel2 = document.createElement('label');
-		newLabel2.innerText = 'Password';
-		newDiv3.append(newLabel2);
+    const newDiv3 = document.createElement("div");
+    newDiv3.setAttribute("class", "user-box");
+    newForm.append(newDiv3);
 
-		const singInButton = document.createElement('button');
-		singInButton.setAttribute('type', 'submit');
+    const newInput2 = document.createElement("input");
+    newInput2.setAttribute("id", "password");
+    newInput2.setAttribute("type", "password");
+    newDiv3.append(newInput2);
 
-		const close = document.createElement('a');
-		close.innerText = 'x';
-		close.setAttribute('id', 'close');
-		this.newDiv.append(close);
+    const newLabel2 = document.createElement("label");
+    newLabel2.innerText = "Password";
+    newDiv3.append(newLabel2);
 
-		singInButton.innerText = 'registration ';
-		singInButton.setAttribute('id', 'submit');
-		singInButton.addEventListener('click', this.getValue)
-		newForm.append(singInButton);
+    const singInButton = document.createElement("button");
+    singInButton.setAttribute("type", "submit");
 
-		return this.newDiv;
-	}
+    const close = document.createElement("a");
+    close.innerText = "Authorization";
+    close.setAttribute("id", "close");
+    close.setAttribute("class", "close");
+    this.newDiv.append(close);
+
+    singInButton.innerText = "Registration ";
+    singInButton.setAttribute("id", "submit");
+    singInButton.addEventListener("click", this.getValue);
+    newForm.append(singInButton);
+
+    return this.newDiv;
+  };
 }
 
 export default Registr;
